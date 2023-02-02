@@ -1,14 +1,27 @@
-# Intro to Software Engineering Project Group 19
- This is the repository for the Software Engineering Project
+# Demo
 
-Front-End Engineers:
-Josh Frye, Timothy Ortiz
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.2.
 
-Back-End Engineers:
-Samuel St Jean, Juan Veliz
+## Development server
 
-Project Name: Gator-Dex
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-Project Description: Gator-Dex will be a tool for students to construct and share their flash card sets for classes and exams amongst one another. 
-The site will allow students with a UF student email to create an account, construct flash card decks, and share them. 
-The decks will be sorted by classcode and by unit/exam within that class. Since classes are oftentimes the same from semester to semester, Gator-Dex will allow for students to have study materials that can be recycled.
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
