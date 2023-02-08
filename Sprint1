@@ -1,3 +1,4 @@
+User Stories:
 As a Student, I want to create an account with an @ufl.edu email so that I can securely make study sets for only UF students
 
 As a student, I want to save sets that I will frequently use as "Favorites" so that they are able to be easily accessed
@@ -9,3 +10,9 @@ As a student, I want to be able to see my most recently used sets so that I can 
 As a student, I want to create sets that I can use to study and that other students can use to study so that they don't have to be created over and over again
 
 As a student, I want to be able to search through study sets by class so that they are easy to find
+
+Issues to address:
+1. Set up Angular and Go seperately
+2. Start login for angular sde
+3. Start creating databases
+4. 
