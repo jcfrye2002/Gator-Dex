@@ -15,4 +15,6 @@ Issues to address:
 1. Set up Angular and Go seperately
 2. Start login for angular sde
 3. Start creating databases
-4. 
+4. Transfer data from front end into back end database. 
+5. Register Users for angular side.
+6. Set up separate databases, one for students and another for indexes.
