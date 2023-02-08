@@ -17,4 +17,21 @@ Issues to address:
 3. Start creating databases
 4. Transfer data from front end into back end database. 
 5. Register Users for angular side.
-6. Set up separate databases, one for students and another for indexes.
+6. Set up separate databases, one for students and another for index cards.
+
+Successfully Completed: 
+
+1. We were able to set up Angular and Go separately and have it compile successfully on each end. 
+2. The front end team was able to set up a login page to display using Angular. 
+3. The back end team was able to set up a database in mySQL.
+4. The back end team was able to get data transfered into the student database created.
+
+Not Completed Yet: 
+
+1. Although the back end team was able to transfer data into the student database, it do so using a makeshift html front end. We were not able to link our 
+angular code to our Go code. This is our current top priority. 
+
+2. The backend was able to create the index cards database, but could not have it work in any capacity given that as long as the front-end and back-end are not 
+linked correctly progress it is quite hard to test our code out. 
+
+3. Front end has not yet created a register users site, this is what's next in the progression of the front end side. 
