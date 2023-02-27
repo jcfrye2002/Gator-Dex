@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Personal Info</h2><br>
+
+<form action="/account/edit" method="POST">
+    <label for="username">Name:</label><br>
+    <!-- readonly input attribute specifies field as read-only -->
+    <input type="text" id="username" value="{{.username}}" name="username" readonly><br>
+    <input type="submit" value="Edit">
+</form> 
+
+<br><br>
+
+</body>
+</html>
