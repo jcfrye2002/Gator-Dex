@@ -1,0 +1,27 @@
+<div class="account-container">
+    <h1>New Account</h1>
+    <form [formGroup]="accountForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="username" required>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput type="password" formControlName="password" required>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput type="password" formControlName="password" required>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" required>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput type="password" formControlName="password" required>
+      </mat-form-field>
+      <button mat-raised-button type="submit" [disabled]="accountForm.invalid">Submit</button> <br> <br>
+      <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Back To Login</a>
+      </form>
+  </div>
