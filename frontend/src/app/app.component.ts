@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Go Lang + Angular + Mongo DB CRUD ';
+  title = 'Gator-Dex';
 }
