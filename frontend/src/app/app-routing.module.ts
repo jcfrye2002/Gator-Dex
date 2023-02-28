@@ -9,17 +9,20 @@ import {UserListComponent }
   from './user-list/user-list.component';
 import { UpdateUserComponent } 
    from './update-user/update-user.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'user', pathMatch: 'full' },
+{ path: 'login',component: LoginComponent},
   { path: 'users', component: UserListComponent },
   { path: 'add', component: CreateUserComponent },
   { path: 'update/:id', component: UpdateUserComponent },
-  { path: 'details/:id', component: UserDetailsComponent },
+  { path: 'details/:id', component: UserDetailsComponent }, 
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  declarations: [LoginComponent]
 })
 export class AppRoutingModule { }

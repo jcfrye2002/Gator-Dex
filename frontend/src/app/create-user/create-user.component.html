@@ -1,32 +1,28 @@
-<h3>Create User</h3>
-<div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="name">First Name</label>
-      <input type="text" class="form-control" 
-      id="firstName" required 
-      [(ngModel)]="user.firstName" name="firstName">
-    </div>
-
-    <div class="form-group">
-      <label for="name">Last Name</label>
-      <input type="text" class="form-control" 
-      id="lastName" required 
-      [(ngModel)]="user.lastName" name="lastName">
-    </div>
-
-    <div class="form-group">
-      <label for="name">Email </label>
-      <input type="text" class="form-control" 
-      id="email" required [(ngModel)]="user.email"
-       name="email">
-    </div>
-
-    <button type="submit" 
-    class="btn btn-danger">Submit</button>
+<div class="account-container">
+  <h1>New Account</h1>
+  <form [formGroup]="accountForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="username" required [(ngModel)]="user.firstName" name="firstName">
+      
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Last Name</mat-label>
+      <input matInput type="password" formControlName="password" required [(ngModel)]="user.lastName" name="lastName">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>email</mat-label>
+      <input matInput type="password" formControlName="password" required [(ngModel)]="user.email"
+      name="email">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password" required [(ngModel)]="user.password">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Confirm Password</mat-label>
+      <input matInput type="password" formControlName="password" required [(ngModel)]="user.password">
+    </mat-form-field>
+    <button mat-raised-button type="submit" [disabled]="accountForm.invalid">Submit</button> <br> <br>
+    <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Back To Login</a>
   </form>
-</div>
-
-<div [hidden]="!submitted">
-  <h4>Successfully submitted!</h4>
-</div>

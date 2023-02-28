@@ -12,6 +12,7 @@ export class CreateUserComponent implements OnInit {
 
   user: User = new User();
   submitted = false;
+accountForm: any;
 
   constructor(private userService: UserService,
     private router: Router) { }
