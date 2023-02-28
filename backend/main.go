@@ -59,11 +59,33 @@ func GetUsers(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(users)
 }
 
+func LoginHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	var users []User
+	result, err := db.Query("SELECT email from users where email = ?")
+	if err != nil {
+		panic(err.Error())
+	}
+	defer result.Close()
+	for result.Next() {
+		var user User
+		err := result.Scan(&user.Password)
+		if err != nil {
+			fmt.Fprintf(w, "Wrong Password Please Try Again")
+			panic(err.Error())
+		}
+		users = append(users, user)
+	}
+	json.NewEncoder(w).Encode(users)
+}
+
+
+
 // Create user
 func CreateUser(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	stmt, err := db.Prepare("INSERT INTO users(first_name," +
-		"last_name,email) VALUES(?,?,?)")
+		"last_name,email,password) VALUES(?,?,?,?)")
 	if err != nil {
 		panic(err.Error())
 	}
@@ -76,7 +98,8 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 	first_name := keyVal["firstName"]
 	last_name := keyVal["lastName"]
 	email := keyVal["email"]
-	_, err = stmt.Exec(first_name, last_name, email)
+	password := keyVal["password"]
+	_, err = stmt.Exec(first_name, last_name, email,password)
 	if err != nil {
 		panic(err.Error())
 	}
@@ -88,7 +111,7 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
 	result, err := db.Query("SELECT id, first_name,"+
-		"last_name,email from users WHERE id = ?", params["id"])
+		"last_name,email,password from users WHERE id = ?", params["id"])
 	if err != nil {
 		panic(err.Error())
 	}
@@ -109,7 +132,7 @@ func UpdateUser(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
 	stmt, err := db.Prepare("UPDATE users SET first_name = ?," +
-		"last_name= ?, email=? WHERE id = ?")
+		"last_name= ?, email=?, password = ? WHERE id = ?")
 	if err != nil {
 		panic(err.Error())
 	}
@@ -122,7 +145,8 @@ func UpdateUser(w http.ResponseWriter, r *http.Request) {
 	first_name := keyVal["firstName"]
 	last_name := keyVal["lastName"]
 	email := keyVal["email"]
-	_, err = stmt.Exec(first_name, last_name, email,
+	password := keyVal["password"]
+	_, err = stmt.Exec(first_name, last_name, email,password
 		params["id"])
 	if err != nil {
 		panic(err.Error())
@@ -154,6 +178,7 @@ type User struct {
 	FirstName string `json:"firstName"`
 	LastName  string `json:"lastName"`
 	Email     string `json:"email"`
+	Password  string `json:"password"`
 }
 
 // Db configuration
