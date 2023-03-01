@@ -1,5 +1,7 @@
 Work completed in Sprint 2:
+
   **Front End** (Josh Frye)
+
       -Completely redid front end login screen to have CSS instead of SCSS
       -Created a new account page to pair with the backend functionality of creating accounts
       -Created a "user list" dummy page for future use
@@ -17,10 +19,13 @@ Work completed in Sprint 2:
   **Back End** (Sam St Jean and Juan Veliz)
   
 Testing:
+
   **Front End** (Josh Frye)
-      Cypress: 
+
+
+      **Cypress:** 
         A simple login form filling test
-      Unit Testing via Jasmine (Passed 9/9):
+      **Unit Testing via Jasmine (Passed 9/9):**
         LoginComponent
           -should create
         UserDetailsComponent
