@@ -9,13 +9,17 @@ import {UserListComponent }
   from './user-list/user-list.component';
 import { UpdateUserComponent } 
    from './update-user/update-user.component';
+import { LoginComponent } from './login/login.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'user', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'users', component: UserListComponent },
   { path: 'add', component: CreateUserComponent },
   { path: 'update/:id', component: UpdateUserComponent },
   { path: 'details/:id', component: UserDetailsComponent },
+  {path: 'login', component:LoginComponent},
+  {path: '**', component:PageNotFoundComponent},
 ];
 
 @NgModule({

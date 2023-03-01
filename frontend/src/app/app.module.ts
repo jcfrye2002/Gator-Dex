@@ -1,35 +1,54 @@
-import { BrowserModule } 
- from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { AppRoutingModule } 
-  from './app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { Component, NgModule } from '@angular/core';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CreateUserComponent } 
-  from './create-user/create-user.component';
-import { UserDetailsComponent } 
-  from './user-details/user-details.component';
-import { UserListComponent } 
-  from './user-list/user-list.component';
-import { UpdateUserComponent } 
-  from './update-user/update-user.component';
-import { HttpClientModule } 
-  from '@angular/common/http';
+import { CreateUserComponent } from './create-user/create-user.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations'
+
+//Forms
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+//Material
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input'
+
+//local shit
+import { LoginComponent } from './login/login.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     CreateUserComponent,
     UserDetailsComponent,
     UserListComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    LoginComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    BrowserAnimationsModule
+  ],
+  exports:[
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export class MaterialModule{ }
