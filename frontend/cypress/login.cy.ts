@@ -1,3 +1,4 @@
+import { createOutputSpy } from "cypress/angular"
 import { LoginComponent } from "src/app/login/login.component"
 
 describe('LoginComponent', () => {
@@ -6,7 +7,9 @@ describe('LoginComponent', () => {
   })
 })
 
-it('when the button is pressed, form is submitted', () => {
+it('Form is fillable and button is clikable', () => {
   cy.mount(LoginComponent)
-  cy.get('.button')
+  cy.get('[data-cy=emailBox]').type("user@email.com")
+  cy.get('[data-cy=passwordBox]').type("password")
+  cy.get('[data-cy=submitButton]').click({force:true})
 })

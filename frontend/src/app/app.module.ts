@@ -40,7 +40,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ReactiveFormsModule,
     MatInputModule,
     BrowserAnimationsModule,
-    MatToolbarModule
+    MatToolbarModule,
   ],
   exports:[
     FormsModule,
