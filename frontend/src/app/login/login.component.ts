@@ -14,7 +14,7 @@ loginForm: any;
 constructor(private fb: FormBuilder){ }
 
 ngOnInit(){
-  this.login = this.fb.group({
+  this.loginForm = this.fb.group({
     email: ['', Validators.required],
     password: ['', Validators.required]
   });
