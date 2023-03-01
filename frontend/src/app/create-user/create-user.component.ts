@@ -2,6 +2,8 @@ import { UserService } from '../user.service';
 import { User } from '../user';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-create-user',
@@ -9,13 +11,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-user.component.css']
 })
 export class CreateUserComponent implements OnInit {
+  createUser: FormGroup
+  createUserForm: any;
 
   user: User = new User();
   submitted = false;
 
   constructor(private userService: UserService,
-    private router: Router) { }
+    private router: Router, private fb:FormBuilder) { }
 
+    
   ngOnInit() {
   }
 
