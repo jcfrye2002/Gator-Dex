@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit{
 login: FormGroup | undefined;
 loginForm: any;
+clicked:boolean;
 
 
 constructor(private fb: FormBuilder){ }
@@ -21,6 +22,6 @@ ngOnInit(){
 }
 
 onSubmit(){
-
+    this.clicked = true;
 }
 }
