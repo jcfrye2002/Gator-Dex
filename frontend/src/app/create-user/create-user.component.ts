@@ -11,18 +11,25 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./create-user.component.css']
 })
 export class CreateUserComponent implements OnInit {
-  createUser: FormGroup
+  createUser: FormGroup | undefined
   createUserForm: any;
 
   user: User = new User();
   submitted = false;
+accountForm: FormGroup<any>;
 
   constructor(private userService: UserService,
     private router: Router, private fb:FormBuilder) { }
 
     
   ngOnInit() {
-  }
+    this.accountForm = this.fb.group({
+      firstName:['',Validators.required],
+      lastName:['',Validators.required],
+      email:['',Validators.required],
+      password:['',Validators.required],
+  })
+}
 
   newUser(): void {
     this.submitted = false;
