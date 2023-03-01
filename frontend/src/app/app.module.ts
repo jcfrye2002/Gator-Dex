@@ -3,8 +3,12 @@ import { Component, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreateUserComponent } from './create-user/create-user.component';
-import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import { RouterTestingModule } from '@angular/router/testing';
+
+//http
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 //Forms
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -20,6 +24,7 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { Router } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -29,7 +34,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     UserListComponent,
     UpdateUserComponent,
     LoginComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,12 +46,15 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MatInputModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    HttpClientTestingModule,
+    RouterTestingModule
   ],
   exports:[
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

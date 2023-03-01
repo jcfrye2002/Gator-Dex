@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatToolbar } from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +7,5 @@ import { MatToolbar } from '@angular/material/toolbar';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Go Lang + Angular + Mongo DB CRUD ';
+  title = 'Gator-Dex';
 }
