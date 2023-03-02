@@ -1,3 +1,5 @@
+Google drive narrated video link: https://drive.google.com/file/d/1CmIoqSWsE9wzAfYM0LGDL5fxb45qLQzO/view?usp=sharing
+
 Work completed in Sprint 2:
 
   **Front End** (Josh Frye)
@@ -18,6 +20,13 @@ Work completed in Sprint 2:
       
   **Back End** (Sam St Jean and Juan Veliz)
   
+  - connected the backend with the frontend
+  - connected the backend with a new database with more features for users
+  - got the create user function working in conjunction with the front end
+  - got delete user working with boilerplate angular files
+  - got getUser function working with boilerplate angular files
+  - created a parent child sql database relationship between users and their card decks on mysql utilizing foreign & primary keys
+  - created a login function to begin connecting with the front ends login
 Testing:
 
   **Front End** (Josh Frye)
@@ -42,3 +51,9 @@ Testing:
           -should render title
         UserListComponent
           -should create
+          
+   **Back End** (Sam St Jean and Juan Veliz)
+   - utalized Golangs built in testing to wite unit tests for working functions
+   - unit test for createUser passed
+   - unit test for getUser passed 
+   - unit test for deleteUser passed
