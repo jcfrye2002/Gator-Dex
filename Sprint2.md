@@ -57,3 +57,18 @@ Testing:
    - unit test for createUser passed
    - unit test for getUser passed 
    - unit test for deleteUser passed
+
+  **Back End** (API Documentation)
+  
+  CreateUser Function: 
+  
+  The CreateUser function allows a user to create his account within the database that we have linked to the front end. 
+  This database stores the first name, last name, email and password given by a user. This function in conjection with our       mySQL database disallows duplicate values for emails. If the email is not found in the database, the aformentioned data is     stored in our local database, and is ready for usage by all the other functions. 
+  
+  GetUser Function: 
+  
+  The GetUser function allows a user to look for other users that are in the database. This function traverses through the       database and looks for the email given by the user doing the search. If it matches one in the database, we send the user's     info to the front end and it displays. This will eventually reveal all of the GatorDex that belong to the user being searched   for.
+  
+  DeleteUser Function: 
+  
+  The DeletUser function allows a user as well as ourselves as admin to delete an account from the database. The function         traverses through the database and finds the user that is asked to be deleted, and he is erased from the database. 
