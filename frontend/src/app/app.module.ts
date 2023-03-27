@@ -24,7 +24,17 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { Router } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+  { path: 'login', component:LoginComponent},
+  { path: 'new-user', component: CreateUserComponent},
+  { path: 'update-user', component: UpdateUserComponent},
+  { path: 'user-details', component: UserDetailsComponent},
+  { path: 'user-list', component: UserListComponent},
+  { path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path: '**', component:PageNotFoundComponent},
+];
 
 @NgModule({
   declarations: [
@@ -47,7 +57,11 @@ import { Router } from '@angular/router';
     BrowserAnimationsModule,
     MatToolbarModule,
     HttpClientTestingModule,
-    RouterTestingModule
+    RouterTestingModule,
+    RouterModule.forRoot(
+      appRoutes,
+      {enableTracing: true}
+    )
   ],
   exports:[
     FormsModule,
