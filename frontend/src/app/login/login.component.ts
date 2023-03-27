@@ -10,12 +10,11 @@ export class LoginComponent implements OnInit{
 login: FormGroup | undefined;
 loginForm: any;
 
-
 constructor(private fb: FormBuilder){ }
 
 ngOnInit(){
-  this.login = this.fb.group({
-    email: ['', Validators.required],
+  this.loginForm = this.fb.group({
+    Email: ['', Validators.required],
     password: ['', Validators.required]
   });
 }
