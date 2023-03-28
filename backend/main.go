@@ -178,6 +178,17 @@ type User struct {
 	Email     string `json:"email"`
 	Password  string `json:"password"`
 }
+type GatorDeck struct {
+	ID            string `json:"id"`
+	GatorDeckID   string `json:"gatorDeckID"`
+	GatorDeckName string `json:"gatorDeckName"`
+	ClassCode     string `json:"classcode"`
+}
+type GatorCard struct {
+	GatorDeckID string `json:"gatorDeckID"`
+	Question    string `json:"question"`
+	Answer      string `json:"answer"`
+}
 
 // Db configuration
 var db *sql.DB
