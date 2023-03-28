@@ -51,7 +51,7 @@
 
     <mat-form-field appearance="outline">
       <mat-label for="name">Password</mat-label>
-      <input matInput formControlName="password" required name="password" name="password">
+      <input matInput formControlName="password" required [(ngModel)]="user.password" name="password">
     </mat-form-field>
 
     <button mat-raised-button type="submit" [disabled]="accountForm.invalid">Create New User</button> <br> <br>
