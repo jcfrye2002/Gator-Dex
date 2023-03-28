@@ -31,6 +31,8 @@ func Routers() {
 		UpdateUser).Methods("PUT")
 	router.HandleFunc("/users/{id}",
 		DeleteUser).Methods("DELETE")
+	router.HandleFunc("/users/{gatorDeckID}",
+		DeleteGatorDex).Methods("DELETE")
 	http.ListenAndServe(":9080",
 		&CORSRouterDecorator{router})
 }
@@ -167,6 +169,23 @@ func DeleteUser(w http.ResponseWriter, r *http.Request) {
 	}
 	fmt.Fprintf(w, "User with ID = %s was deleted",
 		params["id"])
+}
+
+func DeleteGatorDex(w http.ResponseWriter, r *http.Request) {
+
+	w.Header().Set("Content-Type", "application/json")
+	params := mux.Vars(r)
+	stmt, err := db.Prepare("DELETE FROM decks WHERE gatorDeckID = ?")
+	if err != nil {
+		panic(err.Error())
+	}
+	_, err = stmt.Exec(params["gatorDeckID"])
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Fprintf(w, "User with DeckID = %s was deleted",
+		params["gatorDeckID"])
+
 }
 
 /***************************************************/
