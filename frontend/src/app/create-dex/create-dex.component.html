@@ -1,1 +1,25 @@
-<p>create-dex works!</p>
+<div class="newDex-container">
+    <h1>Front of Card</h1>
+    <form [hidden]="submitted" [formGroup]="cardForm" (ngSubmit)="onSubmit()">
+      <mat-form-field data-cy="front" appearance="outline">
+        <mat-label>Front</mat-label>
+        <input matInput type="front" formControlName = "front" required>
+      </mat-form-field>
+    </form>
+      <h1>Back of Card</h1>
+    <form>
+      <mat-form-field data-cy="back" appearance="outline">
+        <mat-label>Back</mat-label>
+        <input matInput type="back" formControlName="back" required>
+      </mat-form-field>
+    </form>
+    
+  
+      <h1><button mat-raised-button type="Finish Dex" (click)="clickHome()" class="bottomButton">Finish Dex</button> 
+        &nbsp; 
+      <button mat-raised-button (click)="clickAddCard()" class="bottomButton" >Add Another Card</button>   </h1> 
+  </div>
+  
+  <div [hidden]="!submitted">
+    <h4>Dex Submitted</h4>
+  </div>

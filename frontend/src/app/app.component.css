@@ -22,12 +22,8 @@
     font-size: x-large;
  }
 
- .footer {
-    position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #0021A5;
-  color: white;
-  text-align: center;
+ footer {
+    flex: 0 0 50px;
+    background: coral;
+    size: 80px;
   }

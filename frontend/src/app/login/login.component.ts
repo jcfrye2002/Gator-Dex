@@ -32,6 +32,7 @@ ngOnInit(){
 onSubmit(){
   this.submitted = true;
   this.save();
+  this.router.navigate(['/home']);
 }
 
 save(){
