@@ -197,6 +197,30 @@ func UpdateUser(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "User with ID = %s was updated",
 		params["id"])
 }
+func UpdatedDeck(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	params := mux.Vars(r)
+	stmt, err := db.Prepare("UPDATE decks SET gatorDeck_Name = ?," +
+		"class_code= ? WHERE id = ?")
+	if err != nil {
+		panic(err.Error())
+	}
+	body, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		panic(err.Error())
+	}
+	keyVal := make(map[string]string)
+	json.Unmarshal(body, &keyVal)
+	gator_DeckName := keyVal["gatorDeckName"]
+	class_code := keyVal["classcode"]
+	_, err = stmt.Exec(gator_DeckName, class_code,
+		params["id"])
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Fprintf(w, "GatorDeck with GatorDeckId = %s was updated",
+		params["id"])
+}
 
 // Delete User
 func DeleteUser(w http.ResponseWriter, r *http.Request) {
