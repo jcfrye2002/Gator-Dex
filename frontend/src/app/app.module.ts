@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButton, MatButtonModule } from '@angular/material/button'; 
 
 //local shit
 import { AppRoutingModule } from './app-routing.module';
@@ -57,6 +58,7 @@ const appRoutes: Routes = [
     MatInputModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    MatButtonModule,
     RouterModule.forRoot(
       appRoutes,
       {enableTracing: true}
@@ -67,6 +69,8 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
+    MatButtonModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

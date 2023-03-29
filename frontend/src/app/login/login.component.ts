@@ -4,6 +4,7 @@ import { UserService } from '../user.service';
 import { User } from '../user';
 import { Router } from '@angular/router';
 import { MatFormField } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @Component({

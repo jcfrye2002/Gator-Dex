@@ -1,23 +1,20 @@
-<mat-toolbar color="white">
-  <div class = "app-module">
-    <h1><a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Gator-Dex</a></h1>
-  </div>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <nav>
-    <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Login</a>
-  </nav>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <nav>
-    <a routerLink="/new-user" routerLinkActive="active" ariaCurrentWhenActive="page">New User</a>
-  </nav>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <nav>
-    <a routerLink="/user-list" routerLinkActive="active" ariaCurrentWhenActive="page">User List</a>
-  </nav>
-  <nav>
-    <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Home Page</a>
-  </nav>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<mat-toolbar color="blue" size = "large">
+  <button mat-button class="title" (click)="clickHome()" class="left-align">
+    Gator-Dex
+  </button>
+  <span class="flexExpand"></span>
+  <button mat-raised-button class="blue-button" (click)="clickLogin()" class="right-align">
+    Login
+  </button>
+  &nbsp;
+  <button mat-raised-button (click)="clickNewUser()" class="right-align">
+    Add User
+  </button>
+  &nbsp;
+  <button mat-raised-button (click)="clickUserList()" class="right-align">
+    User List
+  </button>
+  &nbsp;
 </mat-toolbar>
 
 
