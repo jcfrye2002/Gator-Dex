@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatFormField } from '@angular/material/form-field';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -7,11 +8,13 @@ import { MatFormField } from '@angular/material/form-field';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent {
+  constructor(private router: Router){}
+
   createDex() {
-    // Handle create dex button click
+    this.router.navigate(['/create']);
   }
 
   viewDex() {
-    // Handle view dex button click
+    this.router.navigate(['/view-dex']);
   }
 }

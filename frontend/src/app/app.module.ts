@@ -25,6 +25,8 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { CreateDexComponent } from './create-dex/create-dex.component';
+import { ViewDexComponent } from './view-dex/view-dex.component';
 
 const appRoutes: Routes = [
   { path: 'login', component:LoginComponent},
@@ -46,7 +48,9 @@ const appRoutes: Routes = [
     UpdateUserComponent,
     LoginComponent,
     PageNotFoundComponent,
-    HomePageComponent
+    HomePageComponent,
+    CreateDexComponent,
+    ViewDexComponent
   ],
   imports: [
     BrowserModule,
