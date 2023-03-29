@@ -23,6 +23,7 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 const appRoutes: Routes = [
   { path: 'login', component:LoginComponent},
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
   { path: 'update-user', component: UpdateUserComponent},
   { path: 'user-details', component: UserDetailsComponent},
   { path: 'user-list', component: UserListComponent},
+  { path: 'home', component: HomePageComponent},
   { path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: '**', component:PageNotFoundComponent},
 ];
@@ -42,7 +44,8 @@ const appRoutes: Routes = [
     UserListComponent,
     UpdateUserComponent,
     LoginComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

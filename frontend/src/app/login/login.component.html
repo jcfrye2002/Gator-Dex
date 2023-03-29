@@ -1,16 +1,22 @@
 <div class="login-container">
   <h1>Welcome to Gator-Dex!</h1>
   <h1>Log in</h1>
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <form [hidden]="submitted" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <mat-form-field data-cy="emailBox" appearance="outline">
       <mat-label>Email</mat-label>
       <input matInput type="email" formControlName = "Email" required>
     </mat-form-field>
+
     <mat-form-field data-cy="passwordBox" appearance="outline">
       <mat-label>Password</mat-label>
       <input matInput type="password" formControlName="password" required>
     </mat-form-field>
-    <button data-cy="submitButton" mat-raised-button type="submit" [disabled]="!loginForm.valid">Login</button> <br> <br>
+
+    <button mat-raised-button type="submit" [disabled]="loginForm.invalid">Create New User</button> <br> <br>    
     <a routerLink="/new-user" routerLinkActive="active" ariaCurrentWhenActive="page">New User</a>
     </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>Logged in</h4>
 </div>

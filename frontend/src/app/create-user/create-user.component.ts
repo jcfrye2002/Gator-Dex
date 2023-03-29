@@ -96,7 +96,8 @@ accountForm: FormGroup<any>;
 
   onSubmit() {
     this.submitted = true;
-    this.save();    
+    this.save();
+    this.router.navigate(['/login']);
   }
 
   gotoList() {
