@@ -35,6 +35,7 @@ func Routers() {
 		DeleteGatorDex).Methods("DELETE")
 	http.ListenAndServe(":9080",
 		&CORSRouterDecorator{router})
+	router.HandleFunc("/decks", CreateDeck).Methods("POST")
 }
 
 /***************************************************/
@@ -104,6 +105,28 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 		panic(err.Error())
 	}
 	fmt.Fprintf(w, "New user was created")
+}
+
+func CreateDeck(w http.ResponseWriter, r *http.Request) { // new function
+	w.Header().Set("Content-Type", "application/json")
+	stmt, err := db.Prepare("INSERT INTO decks(gatorDeck_ID, gatorDeck_Name, class_code) VALUES(?,?,?,?)")
+	if err != nil {
+		panic(err.Error())
+	}
+	body, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		panic(err.Error())
+	}
+	keyVal := make(map[string]string)
+	json.Unmarshal(body, &keyVal)
+	gatorDeck_ID := keyVal["gatorDeckID"]
+	gatorDeck_Name := keyVal["gatorDecName"]
+	class_code := keyVal["classcode"]
+	_, err = stmt.Exec(gatorDeck_ID, gatorDeck_Name, class_code)
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Fprintf(w, "New deck was created")
 }
 
 // Get user by ID
@@ -215,8 +238,8 @@ var err error
 
 func InitDB() {
 	db, err = sql.Open("mysql",
-		//"root:Gatordex#8867@tcp(127.0.0.1:3306)/userdb")
-		"root:012002Pw0539004*@tcp(127.0.0.1:3306)/userdb")
+		"root:Gatordex#8867@tcp(127.0.0.1:3306)/userdb")
+	//"root:012002Pw0539004*@tcp(127.0.0.1:3306)/userdb")
 	if err != nil {
 		panic(err.Error())
 	}

@@ -110,7 +110,7 @@ func TestUpdateUsers(t *testing.T) { // NEW TEST
 	defer db.Close()
 
 	newUser := User{
-		ID:        "59",
+		ID:        "61",
 		FirstName: "Toby",
 		LastName:  "Maguire",
 		Email:     "12345piderman@example.com",
@@ -122,7 +122,7 @@ func TestUpdateUsers(t *testing.T) { // NEW TEST
 		t.Fatalf("Failed to marshal user to JSON: %v", err)
 	}
 
-	req, err := http.NewRequest("PUT", "/users/59", bytes.NewBuffer(jsonUser))
+	req, err := http.NewRequest("PUT", "/users/61", bytes.NewBuffer(jsonUser))
 	if err != nil {
 		t.Fatalf("Failed to create request: %v", err)
 	}
@@ -146,7 +146,7 @@ func TestGetUser(t *testing.T) { // NEW TEST
 	defer db.Close()
 
 	newUser := User{
-		ID:        "59",
+		ID:        "61",
 		FirstName: "Toby",
 		LastName:  "Maguire",
 		Email:     "12345piderman@example.com",
@@ -158,7 +158,7 @@ func TestGetUser(t *testing.T) { // NEW TEST
 		t.Fatalf("Failed to marshal user to JSON: %v", err)
 	}
 
-	req, err := http.NewRequest("GET", "/users/59", bytes.NewBuffer(jsonUser))
+	req, err := http.NewRequest("GET", "/users/61", bytes.NewBuffer(jsonUser))
 	if err != nil {
 		t.Fatalf("Failed to create request: %v", err)
 	}
