@@ -31,6 +31,8 @@ func Routers() {
 		UpdateUser).Methods("PUT")
 	router.HandleFunc("/users/{id}",
 		DeleteUser).Methods("DELETE")
+	router.HandleFunc("/users/{gatorDeckID}",
+		DeleteGatorDex).Methods("DELETE")
 	http.ListenAndServe(":9080",
 		&CORSRouterDecorator{router})
 }
@@ -38,7 +40,7 @@ func Routers() {
 /***************************************************/
 
 // Get all users
-func GetUsers(w http.ResponseWriter, r *http.Request) {  // not working 
+func GetUsers(w http.ResponseWriter, r *http.Request) { // not working
 	w.Header().Set("Content-Type", "application/json")
 	var users []User
 	result, err := db.Query("SELECT id, first_name," +
@@ -59,7 +61,7 @@ func GetUsers(w http.ResponseWriter, r *http.Request) {  // not working
 	json.NewEncoder(w).Encode(users)
 }
 
-func LoginHandler(w http.ResponseWriter, r *http.Request) {  // not working 
+func LoginHandler(w http.ResponseWriter, r *http.Request) { // not working
 	w.Header().Set("Content-Type", "application/json")
 	var users []User
 	result, err := db.Query("SELECT email from users where email = ?")
@@ -79,8 +81,6 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {  // not working
 	json.NewEncoder(w).Encode(users)
 }
 
-
-
 // Create user
 func CreateUser(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
@@ -99,7 +99,7 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 	last_name := keyVal["lastName"]
 	email := keyVal["email"]
 	password := keyVal["password"]
-	_, err = stmt.Exec(first_name, last_name, email,password)
+	_, err = stmt.Exec(first_name, last_name, email, password)
 	if err != nil {
 		panic(err.Error())
 	}
@@ -128,7 +128,7 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 }
 
 // Update user
-func UpdateUser(w http.ResponseWriter, r *http.Request) {  // not working 
+func UpdateUser(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
 	stmt, err := db.Prepare("UPDATE users SET first_name = ?," +
@@ -146,7 +146,7 @@ func UpdateUser(w http.ResponseWriter, r *http.Request) {  // not working
 	last_name := keyVal["lastName"]
 	email := keyVal["email"]
 	password := keyVal["password"]
-	_, err = stmt.Exec(first_name, last_name, email,password,
+	_, err = stmt.Exec(first_name, last_name, email, password,
 		params["id"])
 	if err != nil {
 		panic(err.Error())
@@ -171,6 +171,23 @@ func DeleteUser(w http.ResponseWriter, r *http.Request) {
 		params["id"])
 }
 
+func DeleteGatorDex(w http.ResponseWriter, r *http.Request) {
+
+	w.Header().Set("Content-Type", "application/json")
+	params := mux.Vars(r)
+	stmt, err := db.Prepare("DELETE FROM decks WHERE gatorDeckID = ?")
+	if err != nil {
+		panic(err.Error())
+	}
+	_, err = stmt.Exec(params["gatorDeckID"])
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Fprintf(w, "User with DeckID = %s was deleted",
+		params["gatorDeckID"])
+
+}
+
 /***************************************************/
 
 type User struct {
@@ -180,6 +197,17 @@ type User struct {
 	Email     string `json:"email"`
 	Password  string `json:"password"`
 }
+type GatorDeck struct {
+	ID            string `json:"id"`
+	GatorDeckID   string `json:"gatorDeckID"`
+	GatorDeckName string `json:"gatorDeckName"`
+	ClassCode     string `json:"classcode"`
+}
+type GatorCard struct {
+	GatorDeckID string `json:"gatorDeckID"`
+	Question    string `json:"question"`
+	Answer      string `json:"answer"`
+}
 
 // Db configuration
 var db *sql.DB
@@ -187,8 +215,8 @@ var err error
 
 func InitDB() {
 	db, err = sql.Open("mysql",
-		"root:Gatordex#8867@tcp(127.0.0.1:3306)/userdb")
-		//"root:012002Pw0539004*@tcp(127.0.0.1:3306)/userdb")
+		//"root:Gatordex#8867@tcp(127.0.0.1:3306)/userdb")
+		"root:012002Pw0539004*@tcp(127.0.0.1:3306)/userdb")
 	if err != nil {
 		panic(err.Error())
 	}
