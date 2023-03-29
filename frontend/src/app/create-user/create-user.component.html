@@ -55,7 +55,7 @@
     </mat-form-field>
 
     <button mat-raised-button type="submit" [disabled]="accountForm.invalid">Create New User</button> <br> <br>
-    <a routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">Back To Login</a>
+    <button mat-raised-button (click)="clickLogin()" class="loginButton" >Login</button>    
   </form>
 </div>
 

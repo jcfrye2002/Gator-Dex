@@ -37,4 +37,8 @@ onSubmit(){
 save(){
   
 }
+
+clickNewUser(){
+  this.router.navigate(['/new-user']);
+}
 }

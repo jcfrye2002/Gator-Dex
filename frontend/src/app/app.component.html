@@ -1,4 +1,4 @@
-<mat-toolbar color="blue" size = "large">
+<!-- <mat-toolbar color="blue" size = "large">
   <button mat-button class="title" (click)="clickHome()" class="left-align">
     Gator-Dex
   </button>
@@ -17,5 +17,15 @@
   &nbsp;
 </mat-toolbar>
 
+
+<router-outlet></router-outlet> -->
+
+<mat-toolbar class="toolbar"> 
+  <a mat-button (click)="clickHome()" class="dexButton"><b>Gator-Dex</b></a> 
+<span class="flexExpand"></span> 
+  <a mat-button (click)="clickLogin()">Login</a>  
+  <a mat-button (click)="clickNewUser()">New User</a>  
+  <a mat-button (click)="clickUserList()">User List</a>
+</mat-toolbar>
 
 <router-outlet></router-outlet>

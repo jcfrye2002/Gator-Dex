@@ -103,4 +103,8 @@ accountForm: FormGroup<any>;
   gotoList() {
     this.router.navigate(['/users']);
   }
+
+  clickLogin(){
+    this.router.navigate(['/login']);
+  }
 }

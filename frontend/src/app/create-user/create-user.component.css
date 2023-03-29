@@ -3,12 +3,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #0021A5;
+    background-color: white;
     height: 100%;
   }
   
   h1 {
-    color: white;
+    color: black;
     margin-bottom: 20px;
   }
   
@@ -31,4 +31,9 @@
   
   mat-label {
     color: black;
+  }
+
+  .loginButton{
+    background-color: #0021A5;
+    color: white;
   }
