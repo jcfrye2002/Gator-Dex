@@ -24,7 +24,10 @@
     
    Back End (Juan Veliz and Sam St Jean):
    
-**Front End Unit Tests**
+**Unit Tests**
+
+ Front End
+ 
  I used the integrated unit tests with Karma/Jasmine
   -CreateDexComponent
     _should create_
@@ -48,6 +51,6 @@
   -ViewDexComponent
     _should create_
     
-**Back End Unit Tests**
+Back End
 
 **Updated Backend Documentation**
