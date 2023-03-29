@@ -4,7 +4,8 @@ import { BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 //http
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule,Routes } from '@angular/router';
+import { ActivatedRoute, RouterModule,Routes } from '@angular/router';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 //Forms
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -66,7 +67,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       {enableTracing: true}
-    )
+    ),
+    HttpClientTestingModule,
   ],
   exports:[
     FormsModule,
@@ -76,7 +78,7 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatToolbarModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

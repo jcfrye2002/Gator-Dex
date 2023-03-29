@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 import { User } from '../user';
 import { Router } from '@angular/router';
-import { MatFormField } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
@@ -16,7 +16,7 @@ export class CreateDexComponent {
     private router: Router, private fb:FormBuilder){}
 
   newCard: FormGroup | undefined;
-  cardForm: any;
+  cardForm: FormGroup<any>;
 
   submitted = false;
 
