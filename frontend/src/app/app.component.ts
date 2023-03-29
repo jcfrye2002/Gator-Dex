@@ -11,7 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 export class AppComponent {
   title = 'Gator-Dex';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,private toolbar: MatToolbarModule) { }
 
   clickHome() {
     this.router.navigate(['/home']);
