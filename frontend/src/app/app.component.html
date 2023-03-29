@@ -23,9 +23,11 @@
 <mat-toolbar class="toolbar"> 
   <a mat-button (click)="clickHome()" class="dexButton"><b>Gator-Dex</b></a> 
 <span class="flexExpand"></span> 
-  <a mat-button (click)="clickLogin()">Login</a>  
-  <a mat-button (click)="clickNewUser()">New User</a>  
-  <a mat-button (click)="clickUserList()">User List</a>
+  <a mat-button (click)="clickLogin()"><b>Login</b></a>  
+  <a mat-button (click)="clickNewUser()"><b>New User</b></a>  
+  <a mat-button (click)="clickUserList()"><b>User List</b></a>
 </mat-toolbar>
+
+<div class="footer"></div>
 
 <router-outlet></router-outlet>
