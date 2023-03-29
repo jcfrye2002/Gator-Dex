@@ -32,7 +32,7 @@ func Routers() {
 	router.HandleFunc("/users/{id}",
 		DeleteUser).Methods("DELETE")
 	router.HandleFunc("/users/{gatorDeckID}",
-		DeleteGatorDex).Methods("DELETE")
+		DeleteGatorDeck).Methods("DELETE")
 	http.ListenAndServe(":9080",
 		&CORSRouterDecorator{router})
 	router.HandleFunc("/decks", CreateDeck).Methods("POST")
@@ -150,6 +150,26 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(user)
 }
 
+func GetDeck(w http.ResponseWriter, r *http.Request) { // new deck function
+	w.Header().Set("Content-Type", "application/json")
+	params := mux.Vars(r)
+	result, err := db.Query("SELECT gatorDeck_ID, gatorDeck_Name,"+
+		"class_code from decks WHERE id = ?", params["id"])
+	if err != nil {
+		panic(err.Error())
+	}
+	defer result.Close()
+	var deck GatorDeck
+	for result.Next() {
+		err := result.Scan(&deck.ID, &deck.GatorDeckID,
+			&deck.GatorDeckName, &deck.ClassCode)
+		if err != nil {
+			panic(err.Error())
+		}
+	}
+	json.NewEncoder(w).Encode(deck)
+}
+
 // Update user
 func UpdateUser(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
@@ -194,7 +214,7 @@ func DeleteUser(w http.ResponseWriter, r *http.Request) {
 		params["id"])
 }
 
-func DeleteGatorDex(w http.ResponseWriter, r *http.Request) {
+func DeleteGatorDeck(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
@@ -214,18 +234,21 @@ func DeleteGatorDex(w http.ResponseWriter, r *http.Request) {
 /***************************************************/
 
 type User struct {
-	ID        string `json:"id"`
-	FirstName string `json:"firstName"`
-	LastName  string `json:"lastName"`
-	Email     string `json:"email"`
-	Password  string `json:"password"`
+	ID         string      `json:"id"`
+	FirstName  string      `json:"firstName"`
+	LastName   string      `json:"lastName"`
+	Email      string      `json:"email"`
+	Password   string      `json:"password"`
+	GatorDecks []GatorDeck `gorm:"foreignKey:ID"`
 }
 type GatorDeck struct {
-	ID            string `json:"id"`
-	GatorDeckID   string `json:"gatorDeckID"`
-	GatorDeckName string `json:"gatorDeckName"`
-	ClassCode     string `json:"classcode"`
+	ID            string      `json:"id"`
+	GatorDeckID   string      `json:"gatorDeckID"`
+	GatorDeckName string      `json:"gatorDeckName"`
+	ClassCode     string      `json:"classcode"`
+	GatorCards    []GatorCard `gorm:"foreignKey:GatorDeckID"`
 }
+
 type GatorCard struct {
 	GatorDeckID string `json:"gatorDeckID"`
 	Question    string `json:"question"`
