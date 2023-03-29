@@ -26,30 +26,29 @@
    
 **Unit Tests**
 
- Front End
- 
- I used the integrated unit tests with Karma/Jasmine
-  -CreateDexComponent
-    _should create_
-  -HomePageComponent
-    _should create_
-  -CreateUserComponent
-    _should create_
-  -PageNotFoundComponent
-    _should create_
-  -LoginComponent
-    _should create_
-  -UserService
-    _should be created_
-  -UserListComponent
-    _should create_
-  -UserDetailsComponent
-    _should create_
-  -AppComponent
-    _should create the app
-    should have as title 'Gator-Dex'_
-  -ViewDexComponent
-    _should create_
+Front End- used the integrated unit tests with Karma/Jasmine
+  
+    -CreateDexComponent
+      should create
+    -HomePageComponent
+      should create
+    -CreateUserComponent
+      should create
+    -PageNotFoundComponent
+      should create
+    -LoginComponent
+      should create
+    -UserService
+      should be created
+    -UserListComponent
+      should create
+    -UserDetailsComponent
+      should create
+    -AppComponent
+      should create the app
+      should have as title 'Gator-Dex'
+    -ViewDexComponent
+      should create
     
 Back End
 
