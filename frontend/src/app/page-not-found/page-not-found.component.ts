@@ -1,4 +1,16 @@
+// import { Component } from '@angular/core';
+
+// @Component({
+//   selector: 'app-page-not-found',
+//   templateUrl: './page-not-found.component.html',
+//   styleUrls: ['./page-not-found.component.css']
+// })
+// export class PageNotFoundComponent {
+
+// }
+
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-page-not-found',
@@ -6,5 +18,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./page-not-found.component.css']
 })
 export class PageNotFoundComponent {
+  constructor(private router: Router){
 
+  }
+
+  clickHome(){
+    this.router.navigate(['/home']);
+  }
 }

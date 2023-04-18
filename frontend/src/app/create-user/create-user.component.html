@@ -1,4 +1,4 @@
-<h3>Create User</h3>
+<!-- <h3>Create User</h3>
 <div [hidden]="submitted" style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
@@ -24,6 +24,38 @@
 
     <button type="submit" 
     class="btn btn-danger">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>Successfully submitted!</h4>
+</div> -->
+
+<div class="new-user-container">
+  <h1>Create New User</h1>
+  <form [hidden]="submitted" [formGroup]="accountForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline">
+      <mat-label for="name">First Name</mat-label>
+      <input matInput formControlName="firstName" required [(ngModel)]="user.firstName" name="firstName">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label for="name">Last Name</mat-label>
+      <input matInput formControlName="lastName" required [(ngModel)]="user.lastName" name="lastName">
+    </mat-form-field>
+     
+    <mat-form-field appearance="outline">
+       <mat-label for="name">Email</mat-label>
+       <input matInput formControlName="email" required [(ngModel)]="user.email" name="firstName">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label for="name">Password</mat-label>
+      <input matInput formControlName="password" required [(ngModel)]="user.password" name="password">
+    </mat-form-field>
+
+    <button mat-raised-button type="submit" [disabled]="accountForm.invalid">Create New User</button> <br> <br>
+    <button mat-raised-button (click)="clickLogin()" class="loginButton" >Login</button>    
   </form>
 </div>
 

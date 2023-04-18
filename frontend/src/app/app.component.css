@@ -1,5 +1,34 @@
-.app-module{
+/* .app-module{
     align-items:flex-start;
     width:100%;
     height:100%;
+} */
+.app-module{
+    align-items:flex-start;
+    width:100%;
+    height:90%;
 }
+
+.flexExpand {
+    flex: 1 1 auto;
+}
+
+ .toolbar{
+    height: 80px;
+    color: white;
+    background-color: #0021A5;
+    border-bottom-color: black;
+    border-bottom-width: 10px;
+ }
+
+ .dexButton{
+    background-color: transparent;
+    color:#0021A5;
+    font-size: x-large;
+ }
+
+ footer {
+    flex: 0 0 50px;
+    background: coral;
+    size: 80px;
+  }
