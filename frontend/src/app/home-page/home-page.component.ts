@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatFormField } from '@angular/material/form-field';
 import { Router } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-home-page',

@@ -14,6 +14,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButton, MatButtonModule } from '@angular/material/button'; 
+import { MatTableModule} from '@angular/material/table'
 
 
 //local shit
@@ -22,6 +23,8 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ViewDexComponent } from './view-dex/view-dex.component';
+import { CreateDexComponent } from './create-dex/create-dex.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     UserListComponent,
     UpdateUserComponent,
     LoginComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ViewDexComponent,
+    CreateDexComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +48,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MatInputModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule
   ],
   exports:[
     FormsModule,

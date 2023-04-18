@@ -37,8 +37,8 @@ import { UpdateUserComponent } from './update-user/update-user.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomePageComponent } from './home-page/home-page.component';
-//import { CreateDexComponent } from './create-dex/create-dex.component';
-//import { ViewDexComponent } from './view-dex/view-dex.component';
+import { CreateDexComponent } from './create-dex/create-dex.component';
+import { ViewDexComponent } from './view-dex/view-dex.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -48,8 +48,8 @@ const routes: Routes = [
   { path: 'details/:id', component: UserDetailsComponent },
   {path: 'login', component:LoginComponent},
   { path: 'home', component: HomePageComponent},
-  //{ path: 'create', component: CreateDexComponent},
-  //{path: 'view-dex', component: ViewDexComponent},
+  { path: 'create', component: CreateDexComponent},
+  {path: 'view-dex', component: ViewDexComponent},
   {path: '**', component:PageNotFoundComponent},
 ];
 

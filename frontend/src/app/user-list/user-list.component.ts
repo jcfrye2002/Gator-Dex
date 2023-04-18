@@ -3,6 +3,7 @@ import { UserService } from "../user.service";
 import { User } from "../user";
 import { Component, OnInit } from "@angular/core";
 import { Router } from '@angular/router';
+import { MatTableModule } from "@angular/material/table";
 
 @Component({
   selector: "app-user-list",
