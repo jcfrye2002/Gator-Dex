@@ -61,6 +61,8 @@ login: FormGroup | undefined;
 loginForm: any;
 
 submitted = false;
+email: string;
+password : string;
 
 
 constructor(private userService: UserService,
@@ -74,8 +76,9 @@ ngOnInit(){
 }
 
 onSubmit(){
+  this.loginUser();
   this.submitted = true;
-  this.save();
+  this.save(); // logic here to sign in 
   this.router.navigate(['/home']);
 }
 
@@ -86,4 +89,14 @@ save(){
 clickNewUser(){
   this.router.navigate(['/new-user']);
 }
+gotoList() {
+    this.router.navigate(['/users']);
+  }
+  loginUser() {
+    this.userService.updateUser(this.email, this.password)
+      .subscribe(data => {
+        console.log(data);
+        this.gotoList();
+      }, error => console.log(error));
+  }
 }
