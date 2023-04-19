@@ -183,6 +183,25 @@ func GetDeck(w http.ResponseWriter, r *http.Request) { // new deck function
 	json.NewEncoder(w).Encode(deck)
 }
 
+func GetCard(w http.ResponseWriter, r *http.Request) { // new deck function
+	w.Header().Set("Content-Type", "application/json")
+	params := mux.Vars(r)
+	result, err := db.Query("SELECT idcards, question,classcode from cards WHERE idcards = ?", params["idcards"])
+	if err != nil {
+		panic(err.Error())
+	}
+	defer result.Close()
+	var card GatorCard
+	for result.Next() {
+		err := result.Scan(&card.CardID,
+			&card.Question, &card.Answer)
+		if err != nil {
+			panic(err.Error())
+		}
+	}
+	json.NewEncoder(w).Encode(card)
+}
+
 // Update user
 func UpdateUser(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
