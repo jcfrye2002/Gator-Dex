@@ -5,6 +5,9 @@ import { DexInfoComponent } from './dex-info.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 describe('DexInfoComponent', () => {
@@ -16,7 +19,9 @@ describe('DexInfoComponent', () => {
       imports: [HttpClientTestingModule, MatFormFieldModule, 
         BrowserModule,
         FormsModule,
-        ReactiveFormsModule],
+        ReactiveFormsModule,
+      MatInputModule,
+      BrowserAnimationsModule],
       declarations: [ DexInfoComponent ]
     })
     .compileComponents();

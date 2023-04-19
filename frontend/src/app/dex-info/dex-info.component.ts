@@ -22,12 +22,14 @@ export class DexInfoComponent implements OnInit{
 
   deck: Deck = new Deck();
   submitted = false;
-  deckForm : FormGroup<any>;
+  deckForm : FormGroup<any> = this.fb.group({});
 
   
 
   constructor(private deckService: DeckService, private router: Router, 
-    private fb:FormBuilder){}
+    private fb:FormBuilder){
+
+    }
 
     
 
@@ -62,4 +64,6 @@ export class DexInfoComponent implements OnInit{
   toCreate(){
     this.router.navigate(['/create']);
   }
+
+
 }
