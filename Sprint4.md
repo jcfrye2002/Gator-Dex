@@ -25,8 +25,16 @@ Overview Video Link:
     
     
  Back End (Juan Veliz and Sam St Jean):
-   
-   - 
+ 
+    - Integrated the Decks and Cards database with backend and front end in order to perform the necessary tasks. 
+    
+    - Created createCards function to make cards
+    
+    - Created getCard to retrieve a specific card
+    
+    - Created delete card function to delete a card
+    
+    - Created update card function to update cards
    
 **Unit Tests**
 
@@ -72,6 +80,16 @@ Back End
 
 -unit test for login user passed
 
+-unit test for create deck passed 
+
+-unit test for create card passed
+
+-unit test for get card passed
+
+-unit test for remove card passed 
+
+-unit test for update card passed
+
 
 
 Back End (API Documentation)
@@ -99,3 +117,15 @@ The GetDeck function allows a user to look for decks that are in the database. T
 
 DeleteDeck Function:
 The DeletDeck function allows a user as well as ourselves as admin to delete a deck from the database. The function traverses through the database and finds the deck that is asked to be deleted, and he is erased from the database.
+
+CreateCard Function:
+The CreateCard function allows a user to create cards within the database. This database stores the question and answer for the card given by a user. This function in conjunction with our mySQL database, has a foreign key relationship with Deck where the Deck ID dictates that a particular deck has this card. This “has multiple ” relationship is established in our backend Go and our mysql table structure. 
+
+GetCard Function:
+The GetCard function allows a user to look for a card that is in the database. This function traverses through the database and looks for the card given by the user doing the search. If it matches one in the database, we send the deck's info to the front end and it displays. 
+
+DeleteCard Function:
+The DeletCard function allows a user as well as ourselves as admin to delete a card from the database. The function traverses through the database and finds the card that is asked to be deleted, and it is erased from the database.
+
+updateCard function: 
+The updateCard function allows a user to update the card information (question and answer). This function traverses through the database and looks for the card id that the user is looking for to update the information of. Once it is found, the data is overriden with the data newly inputed by the user, and the change is reflected in the database. 
