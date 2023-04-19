@@ -1,6 +1,6 @@
 <div class="login-container">
   <h1>New Dex</h1>
-  <form *ngIf="submitted" [formGroup]="deckForm" (ngSubmit)="onSubmit()">
+  <form  [formGroup]="deckForm" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="outline">
       <mat-label>Dex Name</mat-label>
       <input matInput type="dexName" formControlName = "dexName" required>
