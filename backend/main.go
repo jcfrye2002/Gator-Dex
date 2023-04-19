@@ -391,8 +391,8 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 func GetDeck(w http.ResponseWriter, r *http.Request) { // new deck function
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
-	result, err := db.Query("SELECT gatorDeck_ID, gatorDeck_Name,"+
-		"class_code from decks WHERE id = ?", params["id"])
+	result, err := db.Query("SELECT gatordexID, gatorDeck_Name,"+
+		"class_code from decks WHERE gatordexID = ?", params["gatordexID"])
 	if err != nil {
 		panic(err.Error())
 	}
@@ -456,32 +456,32 @@ func DeleteGatorDeck(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
-	stmt, err := db.Prepare("DELETE FROM decks WHERE gatorDeckID = ?")
+	stmt, err := db.Prepare("DELETE FROM decks WHERE gatordexID = ?")
 	if err != nil {
 		panic(err.Error())
 	}
-	_, err = stmt.Exec(params["gatorDeckID"])
+	_, err = stmt.Exec(params["gatordexID"])
 	if err != nil {
 		panic(err.Error())
 	}
 	fmt.Fprintf(w, "User with DeckID = %s was deleted",
-		params["gatorDeckID"])
+		params["gatordexID"])
 
 }
 func DeleteGatorCard(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
-	stmt, err := db.Prepare("DELETE FROM cards WHERE g = ?")
+	stmt, err := db.Prepare("DELETE FROM cards WHERE idcards = ?")
 	if err != nil {
 		panic(err.Error())
 	}
-	_, err = stmt.Exec(params["gatorDeckID"])
+	_, err = stmt.Exec(params["idcards"])
 	if err != nil {
 		panic(err.Error())
 	}
 	fmt.Fprintf(w, "User with DeckID = %s was deleted",
-		params["gatorDeckID"])
+		params["idcards"])
 
 }
 
