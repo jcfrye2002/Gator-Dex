@@ -25,6 +25,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ViewDexComponent } from './view-dex/view-dex.component';
 import { CreateDexComponent } from './create-dex/create-dex.component';
+import { DexInfoComponent } from './dex-info/dex-info.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { CreateDexComponent } from './create-dex/create-dex.component';
     LoginComponent,
     PageNotFoundComponent,
     ViewDexComponent,
-    CreateDexComponent
+    CreateDexComponent,
+    DexInfoComponent
   ],
   imports: [
     BrowserModule,

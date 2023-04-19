@@ -39,6 +39,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HomePageComponent } from './home-page/home-page.component';
 import { CreateDexComponent } from './create-dex/create-dex.component';
 import { ViewDexComponent } from './view-dex/view-dex.component';
+import { DexInfoComponent } from './dex-info/dex-info.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -50,6 +51,7 @@ const routes: Routes = [
   { path: 'home', component: HomePageComponent},
   { path: 'create', component: CreateDexComponent},
   {path: 'view-dex', component: ViewDexComponent},
+  {path: 'make-dex', component: DexInfoComponent},
   {path: '**', component:PageNotFoundComponent},
 ];
 

@@ -26,8 +26,8 @@ export class HomePageComponent {
   }
 
   createDex() {
-    this.save();
-    this.router.navigate(['/create']);
+    //this.save();
+    this.router.navigate(['/make-dex']);
   }
 
   viewDex() {
