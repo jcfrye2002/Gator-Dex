@@ -94,6 +94,8 @@ gotoList() {
 }
 
 loginUser() {
+    
+
     this.userService.updateUser(this.email, this.password)
       .subscribe(data => {
         console.log(data);
