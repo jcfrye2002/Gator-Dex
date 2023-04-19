@@ -328,7 +328,7 @@ func CreateUser(w http.ResponseWriter, r *http.Request) {
 
 func CreateDeck(w http.ResponseWriter, r *http.Request) { // new function
 	w.Header().Set("Content-Type", "application/json")
-	stmt, err := db.Prepare("INSERT INTO decks(gatorDeck_ID, gatorDeck_Name, class_code) VALUES(?,?,?,?)")
+	stmt, err := db.Prepare("INSERT INTO decks(gatorDeck_ID, gatorDeck_Name, class_code) VALUES(?,?,?)")
 	if err != nil {
 		panic(err.Error())
 	}
@@ -380,7 +380,7 @@ func GetDeck(w http.ResponseWriter, r *http.Request) { // new deck function
 	defer result.Close()
 	var deck GatorDeck
 	for result.Next() {
-		err := result.Scan(&deck.ID, &deck.GatorDeckID,
+		err := result.Scan(&deck.GatorDeckID,
 			&deck.GatorDeckName, &deck.ClassCode)
 		if err != nil {
 			panic(err.Error())
@@ -453,25 +453,21 @@ func DeleteGatorDeck(w http.ResponseWriter, r *http.Request) {
 /***************************************************/
 
 type User struct {
-	ID         string      `json:"id"`
-	FirstName  string      `json:"firstName"`
-	LastName   string      `json:"lastName"`
-	Email      string      `json:"email"`
-	Password   string      `json:"password"`
-	GatorDecks []GatorDeck `gorm:"foreignKey:ID"`
+	ID        string `json:"id"`
+	FirstName string `json:"firstName"`
+	LastName  string `json:"lastName"`
+	Email     string `json:"email"`
+	Password  string `json:"password"`
 }
 type GatorDeck struct {
-	ID            string      `json:"id"`
-	GatorDeckID   string      `json:"gatorDeckID"`
-	GatorDeckName string      `json:"gatorDeckName"`
-	ClassCode     string      `json:"classcode"`
-	GatorCards    []GatorCard `gorm:"foreignKey:GatorDeckID"`
+	GatorDeckID   string `json:"gatorDeckID"`
+	GatorDeckName string `json:"gatorDeckName"`
+	ClassCode     string `json:"classcode"`
 }
 
 type GatorCard struct {
-	GatorDeckID string `json:"gatorDeckID"`
-	Question    string `json:"question"`
-	Answer      string `json:"answer"`
+	Question string `json:"question"`
+	Answer   string `json:"answer"`
 }
 
 // Db configuration
@@ -480,8 +476,8 @@ var err error
 
 func InitDB() {
 	db, err = sql.Open("mysql",
-		"root:Gatordex#8867@tcp(127.0.0.1:3306)/userdb")
-	//"root:012002Pw0539004*@tcp(127.0.0.1:3306)/userdb")
+		//"root:Gatordex#8867@tcp(127.0.0.1:3306)/userdb")
+		"root:012002Pw0539004*@tcp(127.0.0.1:3306)/userdb")
 	if err != nil {
 		panic(err.Error())
 	}
