@@ -123,7 +123,7 @@ func CreateDeck(w http.ResponseWriter, r *http.Request) { // new function
 }
 func CreateCard(w http.ResponseWriter, r *http.Request) { // new function
 	w.Header().Set("Content-Type", "application/json")
-	stmt, err := db.Prepare("INSERT INTO cards(question1, answer1) VALUES(?,?)")
+	stmt, err := db.Prepare("INSERT INTO cards(question, answer) VALUES(?,?)")
 	if err != nil {
 		panic(err.Error())
 	}
@@ -133,9 +133,9 @@ func CreateCard(w http.ResponseWriter, r *http.Request) { // new function
 	}
 	keyVal := make(map[string]string)
 	json.Unmarshal(body, &keyVal)
-	question1 := keyVal["question"]
-	answer1 := keyVal["answer"]
-	_, err = stmt.Exec(question1, answer1)
+	question := keyVal["question1"]
+	answer := keyVal["answer1"]
+	_, err = stmt.Exec(question, answer)
 	if err != nil {
 		panic(err.Error())
 	}
@@ -186,7 +186,7 @@ func GetDeck(w http.ResponseWriter, r *http.Request) { // new deck function
 func GetCard(w http.ResponseWriter, r *http.Request) { // new deck function
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
-	result, err := db.Query("SELECT idcards, question,classcode from cards WHERE idcards = ?", params["idcards"])
+	result, err := db.Query("SELECT idcards, question, answer from cards WHERE idcards = ?", params["idcards"])
 	if err != nil {
 		panic(err.Error())
 	}
@@ -233,7 +233,7 @@ func UpdateUser(w http.ResponseWriter, r *http.Request) {
 func UpdateCard(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
-	stmt, err := db.Prepare("UPDATE card SET idcards = ?," +
+	stmt, err := db.Prepare("UPDATE cards SET idcards = ?," +
 		"question= ?, answer=?")
 	if err != nil {
 		panic(err.Error())
@@ -247,8 +247,7 @@ func UpdateCard(w http.ResponseWriter, r *http.Request) {
 	idcards := keyVal["IDcards"]
 	question := keyVal["Question"]
 	answer := keyVal["Answer"]
-	_, err = stmt.Exec(idcards, question, answer,
-		params["idcards"])
+	_, err = stmt.Exec(idcards, question, answer)
 	if err != nil {
 		panic(err.Error())
 	}
@@ -322,8 +321,8 @@ type GatorDeck struct {
 
 type GatorCard struct {
 	CardID   string `json:"idcards"`
-	Question string `json:"question"`
-	Answer   string `json:"answer"`
+	Question string `json:"question1"`
+	Answer   string `json:"answer1"`
 }
 
 // Db configuration
