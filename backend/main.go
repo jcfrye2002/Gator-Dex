@@ -468,6 +468,22 @@ func DeleteGatorDeck(w http.ResponseWriter, r *http.Request) {
 		params["gatorDeckID"])
 
 }
+func DeleteGatorCard(w http.ResponseWriter, r *http.Request) {
+
+	w.Header().Set("Content-Type", "application/json")
+	params := mux.Vars(r)
+	stmt, err := db.Prepare("DELETE FROM cards WHERE g = ?")
+	if err != nil {
+		panic(err.Error())
+	}
+	_, err = stmt.Exec(params["gatorDeckID"])
+	if err != nil {
+		panic(err.Error())
+	}
+	fmt.Fprintf(w, "User with DeckID = %s was deleted",
+		params["gatorDeckID"])
+
+}
 
 /***************************************************/
 
@@ -479,12 +495,13 @@ type User struct {
 	Password  string `json:"password"`
 }
 type GatorDeck struct {
-	GatorDeckID   string `json:"gatorDeckID"`
+	GatorDeckID   string `json:"gatordexID"`
 	GatorDeckName string `json:"gatorDeckName"`
 	ClassCode     string `json:"classcode"`
 }
 
 type GatorCard struct {
+	CardID   string `json:"idcards"`
 	Question string `json:"question"`
 	Answer   string `json:"answer"`
 }
