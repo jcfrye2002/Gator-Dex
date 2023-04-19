@@ -4,6 +4,8 @@ import { Component, OnInit, Input }
 import { UserService } from '../user.service';
 import { Router, ActivatedRoute } 
   from '@angular/router';
+import { RouterTestingModule } from "@angular/router/testing";
+
 
 @Component({
   selector: 'app-user-details',

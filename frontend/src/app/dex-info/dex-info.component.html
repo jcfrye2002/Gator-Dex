@@ -1,20 +1,16 @@
-<div class="dexInfoContainer">
-    <h1>Create Dex</h1>
-    <form [hidden]="submitted" [formGroup]="deckForm" (ngSubmit)="onSubmit()">
-      <mat-form-field appearance="outline">
-        <mat-label for="gatordeckName">Dex Name</mat-label>
-        <input matInput formControlName="gatordeckName" required [(ngModel)]="deck.gatordeckName" name="gatordeckName">
-      </mat-form-field>
-  
-      <mat-form-field appearance="outline">
-        <mat-label for="classCode">Class Code</mat-label>
-        <input matInput formControlName="classCode" required [(ngModel)]="deck.classCode" name="classCode">
-      </mat-form-field>
-  
-      <button mat-raised-button type="submit" [disabled]="deckForm.invalid">Create Gator-Dex</button> <br> <br>
-    </form>
-  </div>
+<div class="login-container">
+  <h1>New Dex</h1>
+  <form *ngIf="submitted" [formGroup]="deckForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Dex Name</mat-label>
+      <input matInput type="dexName" formControlName = "dexName" required>
+    </mat-form-field>
 
-  <div [hidden]="!submitted">
-    <h4>Successfully submitted!</h4>
-  </div>
+    <mat-form-field appearance="outline">
+      <mat-label>Class Code</mat-label>
+      <input matInput type="classCode" formControlName="classCode" required>
+    </mat-form-field>
+
+    <button mat-raised-button (click)="toCreate()" class="newUser" >Create Dex</button>    
+    </form>
+</div>
