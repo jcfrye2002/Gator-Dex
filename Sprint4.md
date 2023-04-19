@@ -14,7 +14,7 @@ Overview Video Link:
     
     -Added new front end file deck.service.ts to handle communication from front end to back end
     
-    -Added new dex-info component so that dex infor could be collected before cards were created
+    -Added new dex-info component so that dex information could be collected before cards were created
     
     -Small aesthetic changes with angular material
     
